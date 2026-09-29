@@ -36,6 +36,16 @@
         "url": "https://www.athletic.net/CrossCountry/meet/278303"
       },
       {
+        "date": "2026-10-03",
+        "name": "McQuaid Invitational",
+        "location": "Genesee Valley Park, Rochester, NY",
+        "url": "https://ny.milesplit.com/meets/769728-mcquaid-invitational-2026/info",
+        "manual": true,
+        "labels": [
+          "Overnight"
+        ]
+      },
+      {
         "date": "2026-10-17",
         "name": "CHSAA Freshman Relays",
         "location": "Van Cortlandt Park, Bronx, NY 10471",
@@ -81,7 +91,10 @@
         "date": "2026-11-21",
         "name": "NXR Northeast Regional Championships",
         "location": "Bowdoin Park, Wappingers Falls, NY 12590",
-        "url": "https://www.athletic.net/CrossCountry/meet/275587"
+        "url": "https://www.athletic.net/CrossCountry/meet/275587",
+        "labels": [
+          "Overnight"
+        ]
       }
     ]
   },
@@ -189,5 +202,5 @@
       }
     ]
   },
-  "updated": "2026-09-29T18:09Z"
+  "updated": "2026-09-29T23:00Z"
 }

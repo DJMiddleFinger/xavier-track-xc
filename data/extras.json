@@ -1,0 +1,16 @@
+{
+  "meets": [
+    {
+      "sport": "xc",
+      "season": 2026,
+      "date": "2026-10-03",
+      "name": "McQuaid Invitational",
+      "location": "Genesee Valley Park, Rochester, NY",
+      "url": "https://ny.milesplit.com/meets/769728-mcquaid-invitational-2026/info"
+    }
+  ],
+  "labels": [
+    { "match": "McQuaid", "label": "Overnight" },
+    { "match": "NXR", "label": "Overnight" }
+  ]
+}

@@ -1,15 +1,22 @@
 """Pull Xavier's meet schedules from Athletic.net's public iCal feeds into data/schedule.json.
 
 Runs in GitHub Actions on a timer. Only rewrites the file when a schedule actually changes.
+
+Hand-maintained additions live in data/extras.json (meets missing from Athletic.net, plus
+labels such as "Overnight" attached to meets by name). They are merged in here, so never
+edit data/schedule.json by hand; it is regenerated on every sync.
 """
 import datetime
 import json
 import pathlib
 import re
+import sys
 import urllib.request
 
 SCHOOL_ID = 9479  # Xavier (NY) on Athletic.net
-OUT = pathlib.Path(__file__).resolve().parent.parent / "data" / "schedule.json"
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+OUT = ROOT / "data" / "schedule.json"
+EXTRAS = ROOT / "data" / "extras.json"
 
 SPORTS = {
     "xc": {
@@ -80,10 +87,88 @@ def pick_season(sport):
     return season, seasons[season]
 
 
+def warn(message):
+    print(f"WARNING: {message}", file=sys.stderr)
+
+
+def load_extras():
+    """Read data/extras.json. A missing or malformed file (or entry) is skipped with a warning; it must never break the sync."""
+    empty = {"meets": [], "labels": []}
+    if not EXTRAS.exists():
+        return empty
+    try:
+        raw = json.loads(EXTRAS.read_text(encoding="utf-8"))
+        if not isinstance(raw, dict):
+            raise ValueError("top level must be a JSON object")
+    except (OSError, ValueError) as err:
+        warn(f"ignoring {EXTRAS.name}: {err}")
+        return empty
+
+    def entries(field):
+        value = raw.get(field, [])
+        if not isinstance(value, list):
+            warn(f"{EXTRAS.name}: '{field}' must be a list; ignoring it")
+            return []
+        return value
+
+    def text(entry, field):
+        value = entry.get(field, "")
+        return value.strip() if isinstance(value, str) else ""
+
+    meets = []
+    for entry in entries("meets"):
+        if not isinstance(entry, dict):
+            warn(f"{EXTRAS.name}: skipping non-object meet {entry!r}")
+            continue
+        sport, date, name = text(entry, "sport"), text(entry, "date"), text(entry, "name")
+        season = entry.get("season")
+        if (sport not in SPORTS or not name or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date)
+                or isinstance(season, bool) or not isinstance(season, int)):
+            warn(f"{EXTRAS.name}: skipping meet needing a valid sport, season, date (YYYY-MM-DD) and name: {entry!r}")
+            continue
+        meets.append({"sport": sport, "season": season, "date": date, "name": name,
+                      "location": text(entry, "location"), "url": text(entry, "url")})
+
+    labels = []
+    for entry in entries("labels"):
+        match, label = (text(entry, "match"), text(entry, "label")) if isinstance(entry, dict) else ("", "")
+        if not match or not label:
+            warn(f"{EXTRAS.name}: skipping label needing 'match' and 'label': {entry!r}")
+            continue
+        labels.append({"match": match, "label": label})
+    return {"meets": meets, "labels": labels}
+
+
+def apply_extras(key, season, meets, extras):
+    """Merge hand-maintained meets for this sport/season into the feed meets, then attach labels."""
+    meets = [dict(m) for m in meets]
+    for extra in extras["meets"]:
+        if extra["sport"] != key or extra["season"] != season:
+            continue
+        needle = extra["name"].lower()
+        # Once Athletic.net lists the meet itself, drop the manual copy so it never shows twice.
+        if any(m["date"] == extra["date"] and needle in m["name"].lower() for m in meets):
+            continue
+        meets.append({"date": extra["date"], "name": extra["name"], "location": extra["location"],
+                      "url": extra["url"], "manual": True})
+    # Stable sort by date: feed meets keep their (date, name) order and extras follow them on the same day.
+    meets.sort(key=lambda m: m["date"])
+    for meet in meets:
+        labels = []
+        for rule in extras["labels"]:
+            if rule["match"].lower() in meet["name"].lower() and rule["label"] not in labels:
+                labels.append(rule["label"])
+        if labels:
+            meet["labels"] = labels
+    return meets
+
+
 def main():
+    extras = load_extras()
     data = {}
     for key, sport in SPORTS.items():
         season, meets = pick_season(sport)
+        meets = apply_extras(key, season, meets, extras)
         data[key] = {
             "label": sport["label"],
             "season": season,

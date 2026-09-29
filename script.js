@@ -18,6 +18,13 @@ let schedule = null;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const toDate = iso => { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d); };
 const fmt = d => d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+// Labels come from data/extras.json via the sync script (e.g. "Overnight"); "Overnight" gets a crescent-moon icon.
+const MOON_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+const labelBadge = label => {
+  const overnight = String(label).toLowerCase() === 'overnight';
+  const title = overnight ? 'Overnight meet' : label;
+  return ` <span class="label-badge${overnight ? ' overnight' : ''}" title="${esc(title)}">${overnight ? MOON_ICON : ''}${esc(label)}</span>`;
+};
 
 function render(sport) {
   const s = schedule && schedule[sport];
@@ -32,7 +39,8 @@ function render(sport) {
     const cls = past ? 'past' : m.date === nextDate ? 'next' : '';
     const name = m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name);
     const badge = m.date === nextDate ? ' <span class="next-badge">Next</span>' : '';
-    return `<tr class="${cls}"><td>${fmt(toDate(m.date))}</td><td>${name}${badge}</td><td>${esc(m.location)}</td></tr>`;
+    const labels = (m.labels || []).map(labelBadge).join('');
+    return `<tr class="${cls}"><td>${fmt(toDate(m.date))}</td><td>${name}${badge}${labels}</td><td>${esc(m.location)}</td></tr>`;
   }).join('');
   anetLink.href = s.athleticNet;
   subLink.href = s.subscribe;
