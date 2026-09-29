@@ -80,40 +80,23 @@
 
 <section id="schedule" class="section alt">
   <div class="wrap">
-    <h2>Outdoor Track Schedule</h2>
-    <p class="note">Most recently posted outdoor schedule. Check with your coach for current dates.</p>
+    <h2>Meet Schedule</h2>
+    <p class="note" id="sched-note">Synced automatically from Athletic.net.</p>
     <div class="filters" role="tablist">
-      <button class="chip active" data-filter="all">All meets</button>
-      <button class="chip" data-filter="Varsity">Varsity</button>
-      <button class="chip" data-filter="Frosh">Frosh / Soph</button>
-      <button class="chip" data-filter="Qualifiers">Qualifiers</button>
+      <button class="chip active" data-sport="xc" role="tab">Cross Country</button>
+      <button class="chip" data-sport="tf" role="tab">Track &amp; Field</button>
     </div>
     <div class="table-wrap">
       <table class="sched">
-        <thead><tr><th>Date</th><th>Meet</th><th>Location</th><th>Level</th></tr></thead>
-        <tbody>
-          <tr><td>Sat 3/25</td><td>CHSAA Opener</td><td>Icahn</td><td>All</td></tr>
-          <tr><td>Sat 4/1</td><td>Ed Jennings Meet</td><td>Mount St. Michael's</td><td>All</td></tr>
-          <tr><td>Thu 4/6</td><td>FP Development Meet</td><td>Icahn</td><td>All</td></tr>
-          <tr><td>Wed 4/12</td><td>Jesuits</td><td>Icahn</td><td>All</td></tr>
-          <tr><td>Sat 4/15</td><td>FP Invitational</td><td>Icahn</td><td>All</td></tr>
-          <tr><td>Fri–Sat 4/21–22</td><td>NY Relays</td><td>Icahn</td><td>Varsity</td></tr>
-          <tr><td>Sat 4/22</td><td>Big Blue Relays</td><td>St. Joseph by the Sea</td><td>JV, Frosh/Soph</td></tr>
-          <tr><td>Mon 4/24</td><td>CHSAA Novice Championships</td><td>Icahn</td><td>Novice</td></tr>
-          <tr><td>Wed–Fri 4/26–28</td><td>Penn Relays</td><td>UPenn</td><td>Varsity</td></tr>
-          <tr><td>Sun 4/30</td><td>NYCHSAA Frosh/Soph Sectionals</td><td>Icahn</td><td>Frosh/Soph/JV</td></tr>
-          <tr><td>Fri–Sat 5/5–6</td><td>St. Anthony's Invitational</td><td>St. Anthony's</td><td>All</td></tr>
-          <tr><td>Fri 5/12</td><td>Hellgate Relays</td><td>Icahn</td><td>Varsity/JV</td></tr>
-          <tr><td>Fri–Sat 5/12–13</td><td>Loucks Games</td><td>White Plains</td><td>Qualifiers</td></tr>
-          <tr><td>Sat 5/13</td><td>CHSAA Frosh/Soph Intersectionals</td><td>Icahn</td><td>Frosh/Soph</td></tr>
-          <tr><td>Sat 5/20</td><td>NYCHSAA Sectionals · Senior Day</td><td>Icahn</td><td>All</td></tr>
-          <tr><td>Sat 5/27</td><td>CHSAA Varsity Intersectionals</td><td>Icahn</td><td>Qualifiers</td></tr>
-          <tr><td>Sun 6/4</td><td>Easterns</td><td>Iona</td><td>Qualifiers</td></tr>
-          <tr class="hl"><td>Wed 6/7</td><td>Track Awards Dinner</td><td>Xavier</td><td>All</td></tr>
-          <tr><td>Fri–Sat 6/9–10</td><td>NYSPHSAA State Championships</td><td>Syracuse</td><td>Qualifiers</td></tr>
-          <tr><td>6/15–17</td><td>Nationals</td><td>TBD</td><td>Qualifiers</td></tr>
+        <thead><tr><th>Date</th><th>Meet</th><th>Location</th></tr></thead>
+        <tbody id="sched-body">
+          <tr><td colspan="3" class="empty">Loading schedule…</td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="sched-links">
+      <a class="text-link" id="sched-anet" href="https://www.athletic.net/team/9479/cross-country" target="_blank" rel="noopener">View on Athletic.net →</a>
+      <a class="text-link" id="sched-sub" href="#">Add to your calendar →</a>
     </div>
   </div>
 </section>

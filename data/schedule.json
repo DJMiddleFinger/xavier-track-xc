@@ -1,0 +1,193 @@
+{
+  "xc": {
+    "label": "Cross Country",
+    "season": 2026,
+    "athleticNet": "https://www.athletic.net/team/9479/cross-country/2026",
+    "subscribe": "webcal://www.athletic.net/CrossCountry/Print/ical.ashx?SchoolID=9479&S=2026",
+    "meets": [
+      {
+        "date": "2026-09-11",
+        "name": "CHSAA XC Bib Chip Registration",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/277498"
+      },
+      {
+        "date": "2026-09-19",
+        "name": "Dan Purdy Invitational",
+        "location": "Pawling HS, Pawling, NY",
+        "url": "https://www.athletic.net/CrossCountry/meet/276314"
+      },
+      {
+        "date": "2026-09-19",
+        "name": "Regis Invitational",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278442"
+      },
+      {
+        "date": "2026-09-19",
+        "name": "Somers Big Red Invitational",
+        "location": "Somers HS, Somers, NY",
+        "url": "https://www.athletic.net/CrossCountry/meet/276444"
+      },
+      {
+        "date": "2026-10-03",
+        "name": "Saint Anthony's XC Invitational",
+        "location": "Sunken Meadow State Park, Kings Park, NY 11754",
+        "url": "https://www.athletic.net/CrossCountry/meet/278303"
+      },
+      {
+        "date": "2026-10-17",
+        "name": "CHSAA Freshman Relays",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278411"
+      },
+      {
+        "date": "2026-10-17",
+        "name": "CHSAA NY / BQ Sophomore Champs",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278410"
+      },
+      {
+        "date": "2026-10-17",
+        "name": "NYC XC Carnival",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278409"
+      },
+      {
+        "date": "2026-10-31",
+        "name": "CHSAA NY / BQ Sectional Champs",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278462"
+      },
+      {
+        "date": "2026-11-07",
+        "name": "CHSAA Frosh/Soph Champs",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278520"
+      },
+      {
+        "date": "2026-11-14",
+        "name": "CHSAA Intersectional XC Champs",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278521"
+      },
+      {
+        "date": "2026-11-21",
+        "name": "Jesuit Championship",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/278525"
+      },
+      {
+        "date": "2026-11-21",
+        "name": "NXR Northeast Regional Championships",
+        "location": "Bowdoin Park, Wappingers Falls, NY 12590",
+        "url": "https://www.athletic.net/CrossCountry/meet/275587"
+      }
+    ]
+  },
+  "tf": {
+    "label": "Outdoor Track & Field",
+    "season": 2026,
+    "athleticNet": "https://www.athletic.net/team/9479/track-and-field-outdoor/2026",
+    "subscribe": "webcal://www.athletic.net/TrackAndField/Print/ical.ashx?SchoolID=9479&S=2026",
+    "meets": [
+      {
+        "date": "2026-04-02",
+        "name": "Ed Jennings Jamboree",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/653060"
+      },
+      {
+        "date": "2026-04-11",
+        "name": "Gerry Sullivan Invite",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/656807"
+      },
+      {
+        "date": "2026-04-17",
+        "name": "2026 New York Relays",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/660874"
+      },
+      {
+        "date": "2026-04-18",
+        "name": "Mount Relays",
+        "location": "Mount Saint Michael Academy Track, Bronx, 10466",
+        "url": "https://www.athletic.net/TrackAndField/meet/637554"
+      },
+      {
+        "date": "2026-04-23",
+        "name": "130th Penn Relays Carnival",
+        "location": "University of Pennsylvania, Philadelphia, 19104",
+        "url": "https://www.athletic.net/TrackAndField/meet/626692"
+      },
+      {
+        "date": "2026-04-26",
+        "name": "NY and BQ CHSAA Frosh/Soph Sectional Championships",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/661834"
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Track Night NYC",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/635393"
+      },
+      {
+        "date": "2026-05-07",
+        "name": "Glenn D. Loucks Games",
+        "location": "Loucks Field, White Plains, 10605",
+        "url": "https://www.athletic.net/TrackAndField/meet/642873"
+      },
+      {
+        "date": "2026-05-08",
+        "name": "The Hellgate Relays",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/666776"
+      },
+      {
+        "date": "2026-05-09",
+        "name": "CHSAA Freshmen & Sophomore Boys & Girls Intersectional Champs",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/666685"
+      },
+      {
+        "date": "2026-05-16",
+        "name": "NY and BQ CHSAA Sectional Championships",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/667969"
+      },
+      {
+        "date": "2026-05-23",
+        "name": "CHSAA New York State Intersectional Championship",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/668540"
+      },
+      {
+        "date": "2026-05-28",
+        "name": "CHSAA PENTATHLON",
+        "location": "Icahn Stadium, New York, 10035",
+        "url": "https://www.athletic.net/TrackAndField/meet/669271"
+      },
+      {
+        "date": "2026-05-30",
+        "name": "Easterns States Championships",
+        "location": "Iona Preparatory Upper School, New Rochelle, 10804",
+        "url": "https://www.athletic.net/TrackAndField/meet/638284"
+      },
+      {
+        "date": "2026-06-08",
+        "name": "Corrupted File",
+        "location": "Alfred G. Berner Middle School, Massapequa, 11758",
+        "url": "https://www.athletic.net/TrackAndField/meet/638295"
+      },
+      {
+        "date": "2026-06-08",
+        "name": "LI Last Chance",
+        "location": "Alfred G. Berner Middle School, Massapequa, 11758",
+        "url": "https://www.athletic.net/TrackAndField/meet/670032"
+      }
+    ]
+  },
+  "updated": "2026-09-29T18:09Z"
+}

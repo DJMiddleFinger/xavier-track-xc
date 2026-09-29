@@ -104,7 +104,13 @@ th { background: var(--navy); color: #fff; text-align: left; padding: 12px 16px;
 td { padding: 11px 16px; border-top: 1px solid var(--line); }
 tbody tr:hover td { background: var(--bg-alt); }
 .sched td:first-child { white-space: nowrap; font-weight: 600; }
-.sched tr.hl td { background: rgba(201,162,58,.15); }
+.sched tr.next td { background: rgba(201,162,58,.15); }
+.sched tr.past td { color: var(--muted); }
+.sched td a { color: inherit; font-weight: 600; text-decoration: none; }
+.sched td a:hover { color: var(--maroon); text-decoration: underline; }
+.sched td.empty { text-align: center; color: var(--muted); padding: 28px 16px; }
+.next-badge { background: var(--gold); color: var(--navy); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 2px 7px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+.sched-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 6px; }
 .stds td:not(:first-child), .stds th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
 .stds tr.grp td { background: var(--bg-alt); font-weight: 700; color: var(--maroon); text-transform: uppercase; font-size: .78rem; letter-spacing: .08em; }
 @media (prefers-color-scheme: dark) { .stds tr.grp td { color: #e0808f; } }

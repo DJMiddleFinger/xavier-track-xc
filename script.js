@@ -7,16 +7,48 @@ menuBtn.addEventListener('click', () => {
 });
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-// Schedule filter
-const chips = document.querySelectorAll('.chip');
-const rows = document.querySelectorAll('.sched tbody tr');
+// Schedule — data/schedule.json is refreshed from Athletic.net by a GitHub Action
+const chips = document.querySelectorAll('.chip[data-sport]');
+const body = document.getElementById('sched-body');
+const note = document.getElementById('sched-note');
+const anetLink = document.getElementById('sched-anet');
+const subLink = document.getElementById('sched-sub');
+let schedule = null;
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const toDate = iso => { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d); };
+const fmt = d => d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+
+function render(sport) {
+  const s = schedule && schedule[sport];
+  if (!s || !s.meets.length) {
+    body.innerHTML = '<tr><td colspan="3" class="empty">No meets posted on Athletic.net yet.</td></tr>';
+    return;
+  }
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const nextDate = (s.meets.find(m => toDate(m.date) >= today) || {}).date;
+  body.innerHTML = s.meets.map(m => {
+    const past = toDate(m.date) < today;
+    const cls = past ? 'past' : m.date === nextDate ? 'next' : '';
+    const name = m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name);
+    const badge = m.date === nextDate ? ' <span class="next-badge">Next</span>' : '';
+    return `<tr class="${cls}"><td>${fmt(toDate(m.date))}</td><td>${name}${badge}</td><td>${esc(m.location)}</td></tr>`;
+  }).join('');
+  anetLink.href = s.athleticNet;
+  subLink.href = s.subscribe;
+  const updated = schedule.updated ? ` · Last change ${new Date(schedule.updated).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}` : '';
+  note.textContent = `${s.season} ${s.label} season · Synced automatically from Athletic.net${updated}`;
+}
+
 chips.forEach(chip => chip.addEventListener('click', () => {
   chips.forEach(c => c.classList.remove('active'));
   chip.classList.add('active');
-  const f = chip.dataset.filter;
-  rows.forEach(row => {
-    const level = row.lastElementChild.textContent;
-    const show = f === 'all' || level === 'All' || level.includes(f);
-    row.style.display = show ? '' : 'none';
-  });
+  render(chip.dataset.sport);
 }));
+
+fetch('data/schedule.json', { cache: 'no-cache' })
+  .then(r => r.json())
+  .then(data => { schedule = data; render('xc'); })
+  .catch(() => {
+    body.innerHTML = '<tr><td colspan="3" class="empty">Couldn\'t load the schedule. <a href="https://www.athletic.net/team/9479/cross-country" target="_blank" rel="noopener">See it on Athletic.net</a>.</td></tr>';
+  });
