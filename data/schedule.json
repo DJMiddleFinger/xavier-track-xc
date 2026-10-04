@@ -31,19 +31,18 @@
       },
       {
         "date": "2026-10-03",
-        "name": "Saint Anthony's XC Invitational",
-        "location": "Sunken Meadow State Park, Kings Park, NY 11754",
-        "url": "https://www.athletic.net/CrossCountry/meet/278303"
-      },
-      {
-        "date": "2026-10-03",
         "name": "McQuaid Invitational",
-        "location": "Genesee Valley Park, Rochester, NY",
-        "url": "https://ny.milesplit.com/meets/769728-mcquaid-invitational-2026/info",
-        "manual": true,
+        "location": "Genessee Valley Park, Rochester, NY 14618-2659",
+        "url": "https://www.athletic.net/CrossCountry/meet/287282",
         "labels": [
           "Overnight"
         ]
+      },
+      {
+        "date": "2026-10-03",
+        "name": "Saint Anthony's XC Invitational",
+        "location": "Sunken Meadow State Park, Kings Park, NY 11754",
+        "url": "https://www.athletic.net/CrossCountry/meet/278303"
       },
       {
         "date": "2026-10-17",
@@ -202,5 +201,5 @@
       }
     ]
   },
-  "updated": "2026-09-29T23:00Z"
+  "updated": "2026-10-04T21:20Z"
 }
