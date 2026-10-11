@@ -45,6 +45,12 @@
         "url": "https://www.athletic.net/CrossCountry/meet/278303"
       },
       {
+        "date": "2026-10-10",
+        "name": "Manhattan University Cross Country Invitational Pres. by HOKA",
+        "location": "Van Cortlandt Park, Bronx, NY 10471",
+        "url": "https://www.athletic.net/CrossCountry/meet/275113"
+      },
+      {
         "date": "2026-10-17",
         "name": "CHSAA Freshman Relays",
         "location": "Van Cortlandt Park, Bronx, NY 10471",
@@ -201,5 +207,5 @@
       }
     ]
   },
-  "updated": "2026-10-04T21:20Z"
+  "updated": "2026-10-11T19:32Z"
 }
